@@ -15,6 +15,8 @@ public class Forma extends javax.swing.JFrame {
     /**
      * Creates new form Forma
      */
+    public Persona jhon = new Persona();
+    
     public Forma() {
         initComponents();
     }
@@ -36,6 +38,8 @@ public class Forma extends javax.swing.JFrame {
         tf_numcuenta = new javax.swing.JTextField();
         tf_deposito = new javax.swing.JTextField();
         btn_aceptar = new javax.swing.JButton();
+        btn_nuevo = new javax.swing.JButton();
+        btn_modificar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -52,6 +56,20 @@ public class Forma extends javax.swing.JFrame {
         btn_aceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_aceptarActionPerformed(evt);
+            }
+        });
+
+        btn_nuevo.setText("Nuevo Cliente");
+        btn_nuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_nuevoActionPerformed(evt);
+            }
+        });
+
+        btn_modificar.setText("Modificar");
+        btn_modificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_modificarActionPerformed(evt);
             }
         });
 
@@ -74,12 +92,15 @@ public class Forma extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(tf_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(tf_numcuenta, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tf_deposito, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(52, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btn_aceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(94, 94, 94))
+                            .addComponent(tf_deposito, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btn_aceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btn_nuevo)
+                        .addGap(18, 18, 18)
+                        .addComponent(btn_modificar, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -99,8 +120,11 @@ public class Forma extends javax.swing.JFrame {
                     .addComponent(lbl_deposito)
                     .addComponent(tf_deposito, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(36, 36, 36)
-                .addComponent(btn_aceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_aceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_nuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_modificar, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         pack();
@@ -117,12 +141,33 @@ public class Forma extends javax.swing.JFrame {
         tf_nombre.setText("");
         tf_numcuenta.setText("");
         tf_deposito.setText("");
-        /*tf_nombre.getText = '';
-        tf_numcuenta.getText = '';
-        tf_deposito.getText = '';*/
         
-        Persona jhon = new Persona(n,nc,mtn);
+        jhon.setNombre(n);
+        jhon.setNumCuenta(nc);
+        jhon.setMonto(mtn);
+        jhon.mostrarDatos();
     }//GEN-LAST:event_btn_aceptarActionPerformed
+
+    private void btn_nuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_nuevoActionPerformed
+        // TODO add your handling code here:
+        NuevoCliente ncliente = new NuevoCliente();
+        ncliente.setTitle("Nuevo Cliente");
+        ncliente.setBounds(200,200,365,290);
+        ncliente.setVisible(true);
+        ncliente.setResizable(false);
+        ncliente.setDefaultCloseOperation(HIDE_ON_CLOSE);
+        //ncliente.setDefaultCloseOperation();
+    }//GEN-LAST:event_btn_nuevoActionPerformed
+
+    private void btn_modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_modificarActionPerformed
+        // TODO add your handling code here:
+        ModificarCliente modificar = new ModificarCliente();
+        modificar.setTitle("Modificar datos de cliente");
+        modificar.setBounds(300,150,365,310);
+        modificar.setVisible(true);
+        modificar.setResizable(false);
+        modificar.setDefaultCloseOperation(HIDE_ON_CLOSE);
+    }//GEN-LAST:event_btn_modificarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -161,6 +206,8 @@ public class Forma extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_aceptar;
+    private javax.swing.JButton btn_modificar;
+    private javax.swing.JButton btn_nuevo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lbl_deposito;
     private javax.swing.JLabel lbl_nombre;

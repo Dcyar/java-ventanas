@@ -15,14 +15,25 @@ public class Persona {
     private int numero_cuenta;
     private int monto;
     
-    public Persona(String nom, int ncuenta, int monto){
-        this.nombre = nom;
-        this.numero_cuenta = ncuenta;
-        this.monto = monto;
-        
-        System.out.printf("Nombre:\t\t%s\n", this.nombre);
-        System.out.printf("N° de cuenta:\t%d\n", this.numero_cuenta);
-        System.out.printf("Deposito:\tS/.%d\n", this.monto);
-        
+    public String getNombre(){
+        return this.nombre;
+    }
+    public int getNumCuenta(){
+        return this.numero_cuenta;
+    }
+    public int getMonto(){
+        return this.monto;
+    }
+    public void setNombre(String n){
+        this.nombre = n;
+    }
+    public void setNumCuenta(int nc){
+        this.numero_cuenta = nc;
+    }
+    public void setMonto(int m){
+        this.monto = m;
+    }
+    public void mostrarDatos(){
+        System.out.printf("Nombre:\t\t\t %s\nNúmero de cuenta:\t %d\nDepósito:\t\t %d", this.nombre,this.numero_cuenta,this.monto);
     }
 }
